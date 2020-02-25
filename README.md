@@ -41,7 +41,7 @@ import { createSchemaLoader, SchemaLoader } from '@fiquu/schema-loader-mongoose'
 import { Connection } from 'mongoose';
 
 import { options, schemas } from '../configs/schemas';
-import db from '../components/database;
+import db from '../components/database';
 
 const conn: Connection = db.connection('default');
 const loader: SchemaLoader = createSchemaLoader(conn, options);
