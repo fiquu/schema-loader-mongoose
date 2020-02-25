@@ -2388,10 +2388,56 @@ img {
 <div class="container container-main">
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
-			<a href="#template" id="template" style="color: inherit; text-decoration: none;">
-				<h1>template</h1>
+			<a href="#schema-loader-mongoose" id="schema-loader-mongoose" style="color: inherit; text-decoration: none;">
+				<h1>schema-loader-mongoose</h1>
 			</a>
-			<p>fiquu project template. Use this for new projects.</p>
+			<p>Schema loader for Mongoose connections.</p>
+			<a href="#instalation" id="instalation" style="color: inherit; text-decoration: none;">
+				<h2>Instalation</h2>
+			</a>
+			<pre><code class="language-sh">npm i @fiquu/schema-loader-mongoose</code></pre>
+			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+				<h2>Usage</h2>
+			</a>
+			<p>Use it to load your schemas into any Mongoose connection.</p>
+			<p><code>./configs/schemas.ts</code>:</p>
+			<pre><code class="language-ts"><span class="hljs-keyword">import</span> { SchemasMap, SchemaLoaderOptions } <span class="hljs-keyword">from</span> <span class="hljs-string">'@fiquu/schema-loader-mongoose'</span>;
+
+<span class="hljs-comment">// You could move the schema map to another sub-module...</span>
+<span class="hljs-keyword">import</span> profile <span class="hljs-keyword">from</span> <span class="hljs-string">'../schemas/profile'</span>;
+<span class="hljs-keyword">import</span> user <span class="hljs-keyword">from</span> <span class="hljs-string">'../schemas/user'</span>;
+
+<span class="hljs-keyword">const</span> schemas: SchemasMap = <span class="hljs-keyword">new</span> Map();
+
+schemas.set(<span class="hljs-string">'profile'</span>, profile);
+schemas.set(<span class="hljs-string">'user'</span>, user);
+
+<span class="hljs-keyword">const</span> options: SchemaLoaderOptions = {
+  replace: <span class="hljs-literal">false</span>,
+  clone: <span class="hljs-literal">true</span>
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  schemas,
+  options
+}</code></pre>
+			<p><code>./components/schemas.ts</code>:</p>
+			<pre><code class="language-ts"><span class="hljs-keyword">import</span> { createSchemaLoader, SchemaLoader } <span class="hljs-keyword">from</span> <span class="hljs-string">'@fiquu/schema-loader-mongoose'</span>;
+<span class="hljs-keyword">import</span> { Connection } <span class="hljs-keyword">from</span> <span class="hljs-string">'mongoose'</span>;
+
+<span class="hljs-keyword">import</span> { options, schemas } <span class="hljs-keyword">from</span> <span class="hljs-string">'../configs/schemas'</span>;
+<span class="hljs-keyword">import</span> db <span class="hljs-keyword">from</span> <span class="hljs-string">'../components/database'</span>;
+
+<span class="hljs-keyword">const</span> conn: Connection = db.connection(<span class="hljs-string">'default'</span>);
+<span class="hljs-keyword">const</span> loader: SchemaLoader = createSchemaLoader(conn, options);
+
+loader.loadAll(schemas);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> loader;</code></pre>
+			<a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
+				<h2>API Docs</h2>
+			</a>
+			<p>Please visit <a href="https://fiquu.github.io/schema-loader-mongoose/">https://fiquu.github.io/schema-loader-mongoose/</a></p>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 		<section class="tsd-panel-group tsd-index-group">
@@ -2430,7 +2476,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Schemas<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Schema</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/cd4aa67/src/index.ts#L3">index.ts:3</a></li>
+						<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/b39d91f/src/index.ts#L3">index.ts:3</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2447,7 +2493,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/cd4aa67/src/index.ts#L81">index.ts:81</a></li>
+								<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/b39d91f/src/index.ts#L81">index.ts:81</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2485,7 +2531,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/cd4aa67/src/index.ts#L40">index.ts:40</a></li>
+								<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/b39d91f/src/index.ts#L40">index.ts:40</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2534,7 +2580,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/cd4aa67/src/index.ts#L67">index.ts:67</a></li>
+								<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/b39d91f/src/index.ts#L67">index.ts:67</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
