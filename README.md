@@ -16,6 +16,7 @@ Use it to load your schemas into any Mongoose connection.
 ```ts
 import { SchemasMap, SchemaLoaderOptions } from '@fiquu/schema-loader-mongoose';
 
+// You could move the schema map to another sub-module...
 import profile from '../schemas/profile';
 import user from '../schemas/user';
 
