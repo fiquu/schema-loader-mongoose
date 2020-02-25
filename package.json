@@ -1,5 +1,5 @@
 {
-  "name": "@fiquu/template",
+  "name": "@fiquu/schema-loader-mongoose",
   "version": "0.0.0",
   "description": "fiquu project template.",
   "main": "lib/index.js",
@@ -17,7 +17,7 @@
   "keywords": [
     "template"
   ],
-  "author": "fiquu (https://github.com/fiquu) <hi@fiquu.dev>",
+  "author": "fiquu <hi@fiquu.dev> (https://github.com/fiquu)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fiquu/template/issues"
@@ -44,9 +44,14 @@
     "eslint": "^6.8.0",
     "faker": "^4.1.0",
     "mocha": "^7.0.1",
+    "mongodb-memory-server-core": "^6.2.4",
     "nyc": "^15.0.0",
     "ts-node": "^8.6.2",
     "typedoc": "^0.16.9",
     "typescript": "^3.7.5"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
   }
 }
