@@ -30,6 +30,9 @@
   "dependencies": {
     "@types/node": "^13.7.0"
   },
+  "peerDependencies": {
+    "mongoose": "^5.9.2"
+  },
   "devDependencies": {
     "@fiquu/eslint-config": "^2.0.0",
     "@types/chai": "^4.2.8",
