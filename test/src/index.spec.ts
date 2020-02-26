@@ -1,4 +1,4 @@
-import mongoose, { Connection, Model, Document, Schema } from 'mongoose';
+import { createConnection, Connection, Model, Document, Schema } from 'mongoose';
 import { MongoMemoryServer } from 'mongodb-memory-server-core';
 import { expect } from 'chai';
 
@@ -15,7 +15,7 @@ describe('Schemas', function () {
   before(async function () {
     const uri = await mongod.getConnectionString();
 
-    connection = await mongoose.createConnection(uri, {
+    connection = await createConnection(uri, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useCreateIndex: true
@@ -154,7 +154,6 @@ describe('Schemas', function () {
   });
 
   after(async function () {
-    await mongoose.disconnect();
     await connection.close();
     await mongod.stop();
   });
