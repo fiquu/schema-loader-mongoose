@@ -1,8 +1,14 @@
-# schema-loader-mongoose
+# @fiquu/schema-loader-mongoose
+
+[![Build Status](https://travis-ci.org/fiquu/schema-loader-mongoose.svg?branch=master)](https://travis-ci.org/fiquu/schema-loader-mongoose)
+![GitHub](https://img.shields.io/github/license/fiquu/schema-loader-mongoose)
+![GitHub last commit](https://img.shields.io/github/last-commit/fiquu/schema-loader-mongoose)
+![npm (scoped)](https://img.shields.io/npm/v/@fiquu/schema-loader-mongoose)
+![npm](https://img.shields.io/npm/dw/@fiquu/schema-loader-mongoose)
 
 Schema loader for Mongoose connections.
 
-## Instalation
+## Installation
 
 ```sh
 npm i @fiquu/schema-loader-mongoose
@@ -52,5 +58,6 @@ loader.loadAll(schemas);
 export default loader;
 ```
 
-## API Docs
-Please visit https://fiquu.github.io/schema-loader-mongoose/
+## Documentation
+
+Please visit https://fiquu.github.io/schema-loader-mongoose/ for more info and options.
