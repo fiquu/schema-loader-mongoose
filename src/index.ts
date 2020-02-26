@@ -1,4 +1,4 @@
-import { Connection, Schema } from 'mongoose';
+import { Schema, Connection } from 'mongoose';
 
 export type SchemasMap = Map<string, Schema>;
 
