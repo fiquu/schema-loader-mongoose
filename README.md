@@ -19,6 +19,7 @@ npm i @fiquu/schema-loader-mongoose
 Use it to load your schemas into any Mongoose connection.
 
 `./configs/schemas.ts`:
+
 ```ts
 import { SchemasMap, SchemaLoaderOptions } from '@fiquu/schema-loader-mongoose';
 
@@ -43,6 +44,7 @@ export default {
 ```
 
 `./components/schemas.ts`:
+
 ```ts
 import { createSchemaLoader, SchemaLoader } from '@fiquu/schema-loader-mongoose';
 import { Connection } from 'mongoose';
@@ -60,4 +62,4 @@ export default loader;
 
 ## Documentation
 
-Please visit https://fiquu.github.io/schema-loader-mongoose/ for more info and options.
+Please visit [the documentation page](https://fiquu.github.io/schema-loader-mongoose/) for more info and options.
