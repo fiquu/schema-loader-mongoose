@@ -7,15 +7,16 @@ import { expect } from 'chai';
 import { createSchemaLoader, SchemaLoader, SchemaLoaderOptions } from '../../src';
 import config from '../fixtures/schemas';
 
-const mongod = new MongoMemoryServer();
-
 describe('Schemas', function () {
   this.timeout(30000);
 
   let connection: Connection;
+  let mongod: MongoMemoryServer;
 
   before(async function () {
-    const uri = await mongod.getConnectionString();
+    mongod = await MongoMemoryServer.create();
+
+    const uri = await mongod.getUri();
 
     connection = await createConnection(uri, {
       useUnifiedTopology: true,
