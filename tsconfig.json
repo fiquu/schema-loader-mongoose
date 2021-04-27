@@ -6,14 +6,9 @@
     "target": "es2019",
     "strict": false,
     "outDir": "lib",
-    "lib": [
-      "es2020"
-    ]
+    "lib": ["es2020"],
+    "types": ["mocha"]
   },
-  "exclude": [
-    "test/**/*.spec.ts"
-  ],
-  "include": [
-    "src/**/*.ts"
-  ]
+  "exclude": ["test/**/*.spec.ts"],
+  "include": ["src/**/*.ts"]
 }
