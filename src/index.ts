@@ -37,7 +37,7 @@ export interface SchemaLoader {
  * @param {string} name The schema name.
  * @param {Schema} schema The schema to load.
  */
-function load(connection: Connection, options: SchemaLoaderOptions, name: string, schema: Schema): void {
+const load = (connection: Connection, options: SchemaLoaderOptions, name: string, schema: Schema): void => {
   const { clone, replace } = options;
 
   if (connection.modelNames().includes(name)) {
@@ -49,7 +49,7 @@ function load(connection: Connection, options: SchemaLoaderOptions, name: string
   }
 
   connection.model(name, clone ? schema.clone() : schema);
-}
+};
 
 /**
  * Loads all provided Schemas into the Connection's Models.
@@ -64,11 +64,11 @@ function load(connection: Connection, options: SchemaLoaderOptions, name: string
  * @param {boolean} config.clone Whether to clone the schema before loading.
  * @param {Map<string, Schema>} schemas The schemas definition.
  */
-function loadAll(connection: Connection, { clone, replace }: SchemaLoaderOptions, schemas: SchemasMap): void {
+const loadAll = (connection: Connection, { clone, replace }: SchemaLoaderOptions, schemas: SchemasMap): void => {
   for (const [name, schema] of schemas) {
     load(connection, { clone, replace }, name, schema);
   }
-}
+};
 
 /**
  * Creates a new schema loader instance.
@@ -78,7 +78,7 @@ function loadAll(connection: Connection, { clone, replace }: SchemaLoaderOptions
  *
  * @returns {object} The schema loader instance.
  */
-export function createSchemaLoader(connection: Connection, options?: SchemaLoaderOptions): SchemaLoader {
+export const createSchemaLoader = (connection: Connection, options?: SchemaLoaderOptions): SchemaLoader => {
   if (!(connection instanceof Connection)) {
     throw new Error('The `connection` argument must be an instance of `Connection`');
   }
@@ -87,5 +87,4 @@ export function createSchemaLoader(connection: Connection, options?: SchemaLoade
     loadAll: loadAll.bind(null, connection, options || {}),
     load: load.bind(null, connection, options || {})
   });
-}
-
+};
