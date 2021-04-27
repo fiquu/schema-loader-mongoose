@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SchemaLoaderOptions | @fiquu/schema-loader-mongoose</title>
+	<title>@fiquu/schema-loader-mongoose | @fiquu/schema-loader-mongoose</title>
 	<meta name="description" content="Documentation for @fiquu/schema-loader-mongoose">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">:root {
@@ -2674,7 +2674,7 @@ img {
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="../index.html">@fiquu/schema-loader-mongoose</a></strong>
+					<strong><a href="index.html">@fiquu/schema-loader-mongoose</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -2705,82 +2705,159 @@ img {
 <nav class="tsd-navigation secondary">
 	<ul>
 		<li class=" tsd-kind-interface">
-			<a href="schemaloader.html" class="tsd-kind-icon">Schema<wbr>Loader</a>
+			<a href="interfaces/schemaloader.html" class="tsd-kind-icon">Schema<wbr>Loader</a>
 		</li>
-		<li class="current tsd-kind-interface">
-			<a href="schemaloaderoptions.html" class="tsd-kind-icon">Schema<wbr>Loader<wbr>Options</a>
-			<ul>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="schemaloaderoptions.html#clone" class="tsd-kind-icon">clone</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="schemaloaderoptions.html#replace" class="tsd-kind-icon">replace</a>
-				</li>
-			</ul>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/schemaloaderoptions.html" class="tsd-kind-icon">Schema<wbr>Loader<wbr>Options</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
-			<a href="../modules.html#schemasmap" class="tsd-kind-icon">Schemas<wbr>Map</a>
+			<a href="modules.html#schemasmap" class="tsd-kind-icon">Schemas<wbr>Map</a>
 		</li>
 		<li class=" tsd-kind-function">
-			<a href="../modules.html#createschemaloader" class="tsd-kind-icon">create<wbr>Schema<wbr>Loader</a>
+			<a href="modules.html#createschemaloader" class="tsd-kind-icon">create<wbr>Schema<wbr>Loader</a>
 		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<section class="tsd-panel tsd-hierarchy">
-			<h3>Hierarchy</h3>
-			<ul class="tsd-hierarchy">
-				<li>
-					<span class="target">SchemaLoaderOptions</span>
-				</li>
-			</ul>
-		</section>
+		<div class="tsd-panel tsd-typography">
+			<a href="#fiquuschema-loader-mongoose" id="fiquuschema-loader-mongoose" style="color: inherit; text-decoration: none;">
+				<h1>@fiquu/schema-loader-mongoose</h1>
+			</a>
+			<p><a href="https://travis-ci.org/fiquu/schema-loader-mongoose"><img src="https://travis-ci.org/fiquu/schema-loader-mongoose.svg?branch=master" alt="Build Status"></a>
+				<img src="https://img.shields.io/github/license/fiquu/schema-loader-mongoose" alt="GitHub">
+				<img src="https://img.shields.io/github/last-commit/fiquu/schema-loader-mongoose" alt="GitHub last commit">
+				<img src="https://img.shields.io/npm/v/@fiquu/schema-loader-mongoose" alt="npm (scoped)">
+			<img src="https://img.shields.io/npm/dw/@fiquu/schema-loader-mongoose" alt="npm"></p>
+			<p>Schema loader for Mongoose connections.</p>
+			<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+				<h2>Installation</h2>
+			</a>
+			<pre><code class="language-sh"><span style="color: #000000">npm i @fiquu/schema-loader-mongoose</span>
+</code></pre>
+			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+				<h2>Usage</h2>
+			</a>
+			<p>Use it to load your schemas into any Mongoose connection.</p>
+			<p><code>./configs/schemas.ts</code>:</p>
+			<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">SchemasMap</span><span style="color: #000000">, </span><span style="color: #001080">SchemaLoaderOptions</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@fiquu/schema-loader-mongoose&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #008000">// You could move the schema map to another sub-module...</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">profile</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;../schemas/profile&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">user</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;../schemas/user&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">schemas</span><span style="color: #000000">: </span><span style="color: #267F99">SchemasMap</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Map</span><span style="color: #000000">();</span>
+
+<span style="color: #001080">schemas</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;profile&#039;</span><span style="color: #000000">, </span><span style="color: #001080">profile</span><span style="color: #000000">);</span>
+<span style="color: #001080">schemas</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;user&#039;</span><span style="color: #000000">, </span><span style="color: #001080">user</span><span style="color: #000000">);</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000">: </span><span style="color: #267F99">SchemaLoaderOptions</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #001080">replace:</span><span style="color: #000000"> </span><span style="color: #0000FF">false</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">clone:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #AF00DB">default</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">schemas</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">options</span>
+<span style="color: #000000">}</span>
+</code></pre>
+			<p><code>./components/schemas.ts</code>:</p>
+			<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createSchemaLoader</span><span style="color: #000000">, </span><span style="color: #001080">SchemaLoader</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@fiquu/schema-loader-mongoose&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Connection</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;mongoose&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">options</span><span style="color: #000000">, </span><span style="color: #001080">schemas</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;../configs/schemas&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">db</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;../components/database&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">conn</span><span style="color: #000000">: </span><span style="color: #267F99">Connection</span><span style="color: #000000"> = </span><span style="color: #001080">db</span><span style="color: #000000">.</span><span style="color: #795E26">connection</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;default&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">loader</span><span style="color: #000000">: </span><span style="color: #267F99">SchemaLoader</span><span style="color: #000000"> = </span><span style="color: #795E26">createSchemaLoader</span><span style="color: #000000">(</span><span style="color: #001080">conn</span><span style="color: #000000">, </span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+
+<span style="color: #001080">loader</span><span style="color: #000000">.</span><span style="color: #795E26">loadAll</span><span style="color: #000000">(</span><span style="color: #001080">schemas</span><span style="color: #000000">);</span>
+
+<span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #AF00DB">default</span><span style="color: #000000"> </span><span style="color: #001080">loader</span><span style="color: #000000">;</span>
+</code></pre>
+			<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+				<h2>Documentation</h2>
+			</a>
+			<p>Please visit <a href="https://fiquu.github.io/schema-loader-mongoose/">the documentation page</a> for more info and options.</p>
+		</div>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
-						<h3>Properties</h3>
+						<h3>Interfaces</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schemaloaderoptions.html#clone" class="tsd-kind-icon">clone</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schemaloaderoptions.html#replace" class="tsd-kind-icon">replace</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/schemaloader.html" class="tsd-kind-icon">Schema<wbr>Loader</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/schemaloaderoptions.html" class="tsd-kind-icon">Schema<wbr>Loader<wbr>Options</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
+						<h3>Type aliases</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-type-alias"><a href="modules.html#schemasmap" class="tsd-kind-icon">Schemas<wbr>Map</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
+						<h3>Functions</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-function"><a href="modules.html#createschemaloader" class="tsd-kind-icon">create<wbr>Schema<wbr>Loader</a></li>
 						</ul>
 					</section>
 				</div>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Properties</h2>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="clone" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagOptional">Optional</span> clone</h3>
-				<div class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+			<h2>Type aliases</h2>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias">
+				<a name="schemasmap" class="tsd-anchor"></a>
+				<h3>Schemas<wbr>Map</h3>
+				<div class="tsd-signature tsd-kind-icon">Schemas<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Schema</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/9c06612/src/index.ts#L14">index.ts:14</a></li>
+						<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/9c06612/src/index.ts#L3">index.ts:3</a></li>
 					</ul>
 				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Whether to clone schemas before assigning them to the connection&#39;s models.</p>
-					</div>
-				</div>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="replace" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagOptional">Optional</span> replace</h3>
-				<div class="tsd-signature tsd-kind-icon">replace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/9c06612/src/index.ts#L9">index.ts:9</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Whether to replace Schemas upon recurrent <code>load</code> calls.</p>
-					</div>
-				</div>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Functions</h2>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="createschemaloader" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> create<wbr>Schema<wbr>Loader</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">create<wbr>Schema<wbr>Loader<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Connection</span>, options<span class="tsd-signature-symbol">?: </span><a href="interfaces/schemaloaderoptions.html" class="tsd-signature-type" data-tsd-kind="Interface">SchemaLoaderOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/schemaloader.html" class="tsd-signature-type" data-tsd-kind="Interface">SchemaLoader</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/fiquu/schema-loader-mongoose/blob/9c06612/src/index.ts#L81">index.ts:81</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Creates a new schema loader instance.</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>connection: <span class="tsd-signature-type">Connection</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>The connection to use.</p>
+								</div>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="interfaces/schemaloaderoptions.html" class="tsd-signature-type" data-tsd-kind="Interface">SchemaLoaderOptions</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>The options object.</p>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="interfaces/schemaloader.html" class="tsd-signature-type" data-tsd-kind="Interface">SchemaLoader</a></h4>
+						<p>The schema loader instance.</p>
+					</li>
+				</ul>
 			</section>
 		</section>
 		<footer class="with-border-bottom">
