@@ -23,10 +23,6 @@
     "url": "https://github.com/fiquu/schema-loader-mongoose/issues"
   },
   "homepage": "https://github.com/fiquu/schema-loader-mongoose#readme",
-  "engines": {
-    "node": "12",
-    "npm": "6"
-  },
   "dependencies": {},
   "peerDependencies": {
     "mongoose": "5"
